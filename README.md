@@ -2,8 +2,11 @@
 
 ![ API ](images/download.jpg)
 
+- [Objective](#objective)
+- [Data Source](#data-source)
+
 📊 Data Portfolio: Clean Data using MySQL
-1. Objective
+ # Objective
 ### What is the key pain point?
 The data analysis team wants to analyze retail order data to identify key trends and patterns in sales, discounts, and profitability across different product categories
 
@@ -21,7 +24,7 @@ To create a structured dataset that provides insights into retail sales data, in
 
 This will help the business intelligence team make data-driven decisions to optimize pricing strategies and inventory management
 
-2. Data Source
+ # Data Source
 ### Dataset Information
 The dataset is sourced from Kaggle and contains information about retail sales orders from 2022 and 2023.
 Key attributes include:
