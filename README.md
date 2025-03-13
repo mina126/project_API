@@ -11,10 +11,10 @@
      - [Dropping Unnecessary Columns](#Dropping-Unnecessary-Columns)
 - [Saving and Uploading Data to SQL](#Saving-and-Uploading-Data-to-SQL)
 - [Data-Analysis-using-SQL](Data-Analysis-using-SQL)
-       -[Top 10 Best-Selling Products](#Top10Best-SellingProducts)
-       -[Top 5 Best-Selling Products in Each Region](#Top5Best-SellingProductsinEachRegion)
-       -[Month-over-Month Sales Growth Comparison (2022 vs 2023)](#Month-over-MonthSalesGrowthComparison (2022 vs 2023))
-       -[identifies the month with the highest sales for each product category](#identifiesthemonthwiththehighestsalesforeachproductcategory)
+     - [Top 10 Best-Selling Products](#Top10Best-SellingProducts)
+     - [Top 5 Best-Selling Products in Each Region](#Top5Best-SellingProductsinEachRegion)
+     - [Month-over-Month Sales Growth Comparison (2022 vs 2023)](#Month-over-MonthSalesGrowthComparison (2022 vs 2023))
+     - [identifies the month with the highest sales for each product category](#identifiesthemonthwiththehighestsalesforeachproductcategory)
 
 ## Retail Sales Data Analysis - AIP Project
 
