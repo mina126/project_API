@@ -96,7 +96,7 @@ LIMIT 10;
 - ![Cleaned](images/top10highestproducts.png)
 - [Code](codes/findTop10Products.sql)
 
- # 5.2 Top 5 Best-Selling Products in Each Region
+ ## 5.2 Top 5 Best-Selling Products in Each Region
 ```
 WITH cte AS (
     SELECT region, product_id, SUM(sale_price) AS sales
