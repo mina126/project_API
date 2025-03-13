@@ -14,7 +14,7 @@
      - [Top 10 Best-Selling Products](#Top10Best-SellingProducts)
      - [Top 5 Best-Selling Products in Each Region](#Top5Best-SellingProductsinEachRegion)
      - [Month-over-Month Sales Growth Comparison (2022 vs 2023)](#Month-over-MonthSalesGrowthComparison (2022 vs 2023))
-     - [categoryhadhighestrowthbyprofit](#categoryhadighestgrowthbyprofit)
+     - [category had highest growth by profit](#categoryhadighestgrowthbyprofit)
 
 ## Retail Sales Data Analysis - AIP Project
 
