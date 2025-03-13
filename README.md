@@ -14,7 +14,7 @@
      - [Top 10 Best-Selling Products](#Top10Best-SellingProducts)
      - [Top 5 Best-Selling Products in Each Region](#Top5Best-SellingProductsinEachRegion)
      - [Month-over-Month Sales Growth Comparison (2022 vs 2023)](#Month-over-MonthSalesGrowthComparison (2022 vs 2023))
-     - [identifies the month with the highest sales for each product category](#identifiesthemonthwiththehighestsalesforeachproductcategory)
+     - [categoryhadhighestrowthbyprofit](#categoryhadighestgrowthbyprofit)
 
 ## Retail Sales Data Analysis - AIP Project
 
@@ -139,7 +139,7 @@ ORDER BY order_month;
 - ![](images/FindMonthOverMonth.png)
 - [Code](codes/FindMonthOverMonth.sql)
 
-## 5.4 identifies the month with the highest sales for each product category
+## 5.4 which sub category had highest growth by profit in 2023 compare to 2022
 
 ```
 WITH cte AS (
