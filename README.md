@@ -7,6 +7,8 @@
 - [Data Processing](#Data-Processing)
      - [Renaming Columns](#Renaming-Columns)
      - [Converting Column Names to Lowercase](#Converting-Column-Names-to-Lowercase)
+     - [Converting Order Date Data Type](#Converting-Order-Date-Data-Type)
+     - [Dropping Unnecessary Columns]
 
 ## Retail Sales Data Analysis - AIP Project
 
@@ -43,6 +45,18 @@ df['discount'] = df['list_price'] * df['discount_percent'] * 0.01
 df['sale_price'] = df['list_price'] - df['discount']
 df['profit'] = df['sale_price'] - df['cost_price']
 ```
+
+- 3.4 Converting Order Date Data Type
+```
+The order date was converted to the `datetime` format using the following command:
+df['order_date'] = pd.to_datetime(df['order_date'], format='%Y-%m-%d')
+```
+3.5 Dropping Unnecessary Columns
+```
+The following columns were removed as they were no longer needed: `list_price`, `cost_price`, `discount_percent`.
+df.drop(columns=['list_price', 'cost_price', 'discount_percent'], inplace=True)
+```
+
 
 
 
