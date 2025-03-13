@@ -10,6 +10,7 @@
      - [Converting Order Date Data Type](#Converting-Order-Date-Data-Type)
      - [Dropping Unnecessary Columns](#Dropping-Unnecessary-Columns)
 - [Saving and Uploading Data to SQL](#Saving-and-Uploading-Data-to-SQL)
+- [Data-Analysis-using-SQL](Data-Analysis-using-SQL)
 
 ## Retail Sales Data Analysis - AIP Project
 
@@ -57,7 +58,7 @@ df['order_date'] = pd.to_datetime(df['order_date'], format='%Y-%m-%d')
 The following columns were removed as they were no longer needed: `list_price`, `cost_price`, `discount_percent`.
 df.drop(columns=['list_price', 'cost_price', 'discount_percent'], inplace=True)
 ```
-# 4.  Saving and Uploading Data to SQL
+# Saving and Uploading Data to SQL
 
  - 4.1 Saving Cleaned Data to CSV
 ```
@@ -68,8 +69,34 @@ try:
 except Exception as e:
     print('❌ Error saving file:', e)
 ```
+ - 4.2 Uploading Data to MySQL
+ ```
+The SQLAlchemy library was used to upload the data to a MySQL database.
+from sqlalchemy import create_engine
 
-   
+engine = create_engine("mysql+pymysql://root:123456789@localhost:3306/data_kaggle")
+
+try:
+    df.to_sql('df_orders', con=engine, index=False, if_exists='append')
+    print("✅ Connected to the database successfully")
+except Exception as e:
+    print("❌ Connection to the database failed", e)
+```
+
+# Data Analysis using SQL
+ - 5.1 Top 10 Best-Selling Products
+```
+Finding the top 10 highest revenue-generating products:
+SELECT product_id, SUM(sale_price) AS sales 
+FROM df_orders 
+GROUP BY product_id 
+ORDER BY sales DESC 
+LIMIT 10;
+```
+![Cleaned](images/top10highestproducts.png)
+[Code](assets/images/1_row_count_check.png)
+
+
 
 
 
