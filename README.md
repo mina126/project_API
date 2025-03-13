@@ -28,8 +28,8 @@ This will help the business intelligence team make data-driven decisions to opti
 ### Dataset Information
 The dataset is sourced from Kaggle and contains information about retail sales orders from 2022 and 2023.
 Key attributes include:
-✅ Order ID, Order Date, Shipping Mode
 
+✅ Order ID, Order Date, Shipping Mode
 ✅ Customer Segment, Country, City, Region
 
 ✅ Product Category, Subcategory, Product ID
