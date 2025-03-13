@@ -84,7 +84,7 @@ except Exception as e:
 ```
 
 # Data Analysis using SQL
- - 5.1 Top 10 Best-Selling Products
+ # 5.1 Top 10 Best-Selling Products
 ```
 Finding the top 10 highest revenue-generating products:
 SELECT product_id, SUM(sale_price) AS sales 
@@ -96,7 +96,7 @@ LIMIT 10;
 - ![Cleaned](images/top10highestproducts.png)
 - [Code](codes/findTop10Products.sql)
 
- - 5.2 Top 5 Best-Selling Products in Each Region
+ # 5.2 Top 5 Best-Selling Products in Each Region
 ```
 WITH cte AS (
     SELECT region, product_id, SUM(sale_price) AS sales
