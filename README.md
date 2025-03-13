@@ -8,7 +8,8 @@
      - [Renaming Columns](#Renaming-Columns)
      - [Converting Column Names to Lowercase](#Converting-Column-Names-to-Lowercase)
      - [Converting Order Date Data Type](#Converting-Order-Date-Data-Type)
-     - [Dropping Unnecessary Columns]
+     - [Dropping Unnecessary Columns](#Dropping-Unnecessary-Columns)
+  - [Saving and Uploading Data to SQL](#Saving-and-Uploading-Data-to-SQL)
 
 ## Retail Sales Data Analysis - AIP Project
 
@@ -56,7 +57,19 @@ df['order_date'] = pd.to_datetime(df['order_date'], format='%Y-%m-%d')
 The following columns were removed as they were no longer needed: `list_price`, `cost_price`, `discount_percent`.
 df.drop(columns=['list_price', 'cost_price', 'discount_percent'], inplace=True)
 ```
+4. # Saving and Uploading Data to SQL
 
+ - 4.1 Saving Cleaned Data to CSV
+```
+The cleaned data was saved to a CSV file using the following script:
+try:
+    df.to_csv('orders/orders_clean.csv', index=False)
+    print('✅ File saved successfully!')
+except Exception as e:
+    print('❌ Error saving file:', e)
+```
+
+   
 
 
 
