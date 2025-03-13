@@ -6,8 +6,7 @@
 - [Data Source](#data-source)
 - [Data Processing](#Data-Processing)
      - [Renaming Columns](#Renaming-Columns)
-- ج
-- ج
+     - [Converting Column Names to Lowercase](#Converting-Column-Names-to-Lowercase)
 
 ## Retail Sales Data Analysis - AIP Project
 
@@ -29,3 +28,27 @@
  'Sub Category':'sub_category','Cost Price':'cost_price',
  'List Price':'list_price','Discount Percent':'discount_percent'}, inplace=True)
  ```
+
+ - 3.2 Converting Column Names to Lowercase
+  ```
+All column names were converted to lowercase for consistency:
+df.columns = df.columns.str.lower()
+  ```
+
+ - 3.3 Creating New Columns
+
+```
+New columns were derived to calculate discount, sale price, and profit using the following formulas:
+df['discount'] = df['list_price'] * df['discount_percent'] * 0.01
+df['sale_price'] = df['list_price'] - df['discount']
+df['profit'] = df['sale_price'] - df['cost_price']
+```
+
+
+
+
+
+
+
+
+
