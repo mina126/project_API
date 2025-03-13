@@ -24,7 +24,7 @@
 - Order Id, Order Date, Ship Mode, Segment, Country, City, State, Postal Code, Region, Category, Sub Category, Product Id, Cost Price, List Price, Quantity, Discount Percent
 
 # Data Processing
-- 3.1 Renaming Columns
+## 3.1 Renaming Columns
  ```
  Some column names were modified for better clarity and usability.
  df.rename(columns={'Ship Mode': 'ship_mode', 'Order ID': 'order_id',
@@ -33,13 +33,13 @@
  'List Price':'list_price','Discount Percent':'discount_percent'}, inplace=True)
  ```
 
- - 3.2 Converting Column Names to Lowercase
+## 3.2 Converting Column Names to Lowercase
   ```
 All column names were converted to lowercase for consistency:
 df.columns = df.columns.str.lower()
   ```
 
- - 3.3 Creating New Columns
+ ## 3.3 Creating New Columns
 
 ```
 New columns were derived to calculate discount, sale price, and profit using the following formulas:
@@ -48,19 +48,19 @@ df['sale_price'] = df['list_price'] - df['discount']
 df['profit'] = df['sale_price'] - df['cost_price']
 ```
 
-- 3.4 Converting Order Date Data Type
+## 3.4 Converting Order Date Data Type
 ```
 The order date was converted to the `datetime` format using the following command:
 df['order_date'] = pd.to_datetime(df['order_date'], format='%Y-%m-%d')
 ```
-3.5 Dropping Unnecessary Columns
+## Dropping Unnecessary Columns
 ```
 The following columns were removed as they were no longer needed: `list_price`, `cost_price`, `discount_percent`.
 df.drop(columns=['list_price', 'cost_price', 'discount_percent'], inplace=True)
 ```
 # Saving and Uploading Data to SQL
 
- - 4.1 Saving Cleaned Data to CSV
+ ## Saving Cleaned Data to CSV
 ```
 The cleaned data was saved to a CSV file using the following script:
 try:
@@ -69,7 +69,7 @@ try:
 except Exception as e:
     print('❌ Error saving file:', e)
 ```
- - 4.2 Uploading Data to MySQL
+ # Uploading Data to MySQL
  ```
 The SQLAlchemy library was used to upload the data to a MySQL database.
 from sqlalchemy import create_engine
@@ -84,7 +84,7 @@ except Exception as e:
 ```
 
 # Data Analysis using SQL
- # 5.1 Top 10 Best-Selling Products
+ ## Top 10 Best-Selling Products
 ```
 Finding the top 10 highest revenue-generating products:
 SELECT product_id, SUM(sale_price) AS sales 
@@ -114,7 +114,48 @@ WHERE rn <= 5;
 - ![](images/FindTop5HighestSellingProducts.png)
 - [Code](codes/findTop5HighestSellingProducts.sql)
 
+ ## 5.3 Month-over-Month Sales Growth Comparison (2022 vs 2023)
+ ```
+WITH cte AS (
+    SELECT 
+        YEAR(order_date) AS order_year,
+        MONTH(order_date) AS order_month,
+        SUM(sale_price) AS sales
+    FROM df_orders
+    GROUP BY YEAR(order_date), MONTH(order_date)
+)
+SELECT 
+    order_month,
+    SUM(CASE WHEN order_year = 2022 THEN sales ELSE 0 END) AS sales_2022,
+    SUM(CASE WHEN order_year = 2023 THEN sales ELSE 0 END) AS sales_2023
+FROM cte 
+GROUP BY order_month
+ORDER BY order_month;
+```
+- ![](images/FindMonthOverMonth.png)
+- [Code](codes/FindMonthOverMonth.sql)
 
+## 5.4 
+
+```
+WITH cte AS (
+    SELECT 
+        category, 
+        DATE_FORMAT(order_date, '%Y%m') AS order_year_month,
+        SUM(sale_price) AS sales
+    FROM df_orders
+    GROUP BY category, DATE_FORMAT(order_date, '%Y%m')
+)
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY category ORDER BY sales DESC) AS rn
+    FROM cte
+) AS a
+WHERE rn = 1;
+```
+- ![](images/ForEachMonthSales.png)
+- [Code](codes/ForEachMonthSales.sql)
 
 
 
