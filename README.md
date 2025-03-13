@@ -93,8 +93,8 @@ GROUP BY product_id
 ORDER BY sales DESC 
 LIMIT 10;
 ```
-![Cleaned](images/top10highestproducts.png)
-[Code](assets/images/1_row_count_check.png)
+- ![Cleaned](images/top10highestproducts.png)
+- [Code](codes/findTop10Products.sql)
 
 
 
